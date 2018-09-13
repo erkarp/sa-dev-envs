@@ -1,0 +1,23 @@
+{
+  "name": "SmartAsset.com Dev",
+  "version": "1.0",
+  "description": "Go to smartasset.com pages in another static dev environment",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/smartasset_180x180.png",
+      "128": "images/smartasset_300x300.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "images/smartasset_180x180.png",
+    "128": "images/smartasset_300x300.png"
+  },
+  "manifest_version": 2
+}
