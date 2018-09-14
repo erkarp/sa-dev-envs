@@ -15,8 +15,10 @@ const updateLinks = function() {
                 {code: 'document.location = "' + destination + '";'});
             }
 
-            // For show, unused to avoid hitting the popup DOM
+            // For show; unused to avoid hitting the popup DOM
             linkElem.setAttribute('href', destination);
+            
+            linkElem.className = tabUrl.origin === origins[i].link ? 'current' : undefined;
             break;
           }
         }
