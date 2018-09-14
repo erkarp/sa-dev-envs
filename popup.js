@@ -1,14 +1,11 @@
-const linkList = document.getElementById('link_list');
-
-chrome.tabs.onUpdated.addListener(function (id, info, tab) {
+const generateLinks = function() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-
-    const tabUrl = new URL(tabs[0].url);
-    const suffix = tabUrl.pathname + tabUrl.search;
 
     // chrome.tabs.executeScript(
     //     tabs[0].id,
     //     {code: 'document.body.style.backgroundColor = "' + color + '";'});
+    
+    const linkList = document.getElementById('link_list');
 
     while (linkList.firstChild) {
       linkList.removeChild(linkList.firstChild);
@@ -18,12 +15,24 @@ chrome.tabs.onUpdated.addListener(function (id, info, tab) {
       data.origins.forEach(origin => {
 
         let linkElem = document.createElement('a');
-        linkElem.setAttribute('href', origin + suffix);
+        let linkName = Object.getOwnPropertyNames(origin)[0];
 
-        linkElem.append(origin + suffix);
+        let tabUrl = new URL(tabs[0].url);
+        let suffix = tabUrl.pathname + tabUrl.search;
+
+        linkElem.setAttribute('href', origin[linkName] + suffix);
+        linkElem.setAttribute('title', origin[linkName] + suffix);
+
+        linkElem.append(linkName);
         linkList.appendChild(linkElem);
       });
     });
-  
+
   });
-});
+};
+
+chrome.tabs.onUpdated.addListener(function (id, info, tab) {
+  generateLinks();
+});  
+
+(generateLinks());
