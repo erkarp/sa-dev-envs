@@ -2,12 +2,30 @@ chrome.runtime.onInstalled.addListener(function() {
 
   chrome.storage.sync.set({
     origins: [
-      {'local':  'http://test.smartasset.com:8080'},
-      {'s2':     'https://staging2.smartasset.com'},
-      {'qa':     'https://qa.smartasset.com'},
-      {'r1':     'https://r1.smartasset.com'},
-      {'dev':    'https://dev.smartasset.com'},
-      {'sa.com': 'https://smartasset.com'}
+      {
+        'name': 'local',
+        'link': 'http://test.smartasset.com:8080'
+      },
+      {
+        'name': 's2',   
+        'link': 'https://staging2.smartasset.com'
+      },
+      {
+        'name': 'qa',   
+        'link': 'https://qa.smartasset.com'
+      },
+      {
+        'name': 'r1',   
+        'link': 'https://r1.smartasset.com'
+      },
+      {
+        'name': 'dev',  
+        'link': 'https://dev.smartasset.com'
+      },
+      {
+        'name': 'sa.com',
+        'link': 'https://smartasset.com'
+      }
     ]
   });
 

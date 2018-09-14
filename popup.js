@@ -1,40 +1,52 @@
-const generateLinks = function() {
+const updateLinks = function() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-
-    const linkList = document.getElementById('link_list');
-    while (linkList.firstChild) {
-      linkList.removeChild(linkList.firstChild);
-    }
-
     chrome.storage.sync.get('origins', function(data) {
-      data.origins.forEach(origin => {
 
-        let linkElem = document.createElement('a');
-        let linkName = Object.getOwnPropertyNames(origin)[0];
+      Array.from(document.getElementsByTagName('a')).forEach(linkElem => {
+        const tabUrl = new URL(tabs[0].url), origins = data.origins;
 
-        let tabUrl = new URL(tabs[0].url);
-        let suffix = tabUrl.pathname + tabUrl.search;
+        for (let i = 0; i < origins.length; i++) {
+          if (origins[i].name === linkElem.getAttribute('data-name')) {
+            const destination = origins[i].link + tabUrl.pathname + tabUrl.search;
 
-        linkElem.setAttribute('href', origin[linkName] + suffix);
-        linkElem.setAttribute('title', origin[linkName] + suffix);
+            // This replaces typical anchor functionality 
+            linkElem.onclick = element => {
+              chrome.tabs.executeScript(tabs[0].id, 
+                {code: 'document.location = "' + destination + '";'});
+            }
 
-        linkElem.onclick = element => {
-          let destination = element.target.getAttribute('href');
-
-          chrome.tabs.executeScript(tabs[0].id,
-            {code: 'document.location = "' + destination + '";'});
-        };
-
-        linkElem.append(linkName);
-        linkList.appendChild(linkElem);
+            // For show, unused to avoid hitting the popup DOM
+            linkElem.setAttribute('href', destination);
+            break;
+          }
+        }
       });
-    });
 
+    });
+  });
+};
+
+const createLinks = function() {
+  const linkList = document.getElementById('link_list');
+
+  chrome.storage.sync.get('origins', function(data) {
+    data.origins.forEach((origin, index) => {
+
+      let linkElem = document.createElement('a');
+      // linkElem.setAttribute('title', `Cmd + ${index}`);
+      linkElem.setAttribute('data-name', origin.name);
+      
+      linkElem.append(origin.name);
+      linkList.appendChild(linkElem);
+    });
   });
 };
 
 chrome.tabs.onUpdated.addListener(function (id, info, tab) {
-  generateLinks();
+  updateLinks();
 });  
 
-(generateLinks());
+(function() {
+  createLinks();
+  updateLinks();
+})();
