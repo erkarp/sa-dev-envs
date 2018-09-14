@@ -2,7 +2,7 @@
   "name": "SmartAsset.com Dev",
   "version": "1.0",
   "description": "Go to smartasset.com pages in another static dev environment",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["tabs", "activeTab", "declarativeContent", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
