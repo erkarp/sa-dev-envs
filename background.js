@@ -4,9 +4,9 @@ chrome.runtime.onInstalled.addListener(function() {
     origins: [
       {'local':  'http://test.smartasset.com:8080'},
       {'s2':     'https://staging2.smartasset.com'},
-      {'qa':     'https://dev.smartasset.com'},
-      {'r1':     'https://qa.smartasset.com'},
-      {'dev':    'https://r1.smartasset.com'},
+      {'qa':     'https://qa.smartasset.com'},
+      {'r1':     'https://r1.smartasset.com'},
+      {'dev':    'https://dev.smartasset.com'},
       {'sa.com': 'https://smartasset.com'}
     ]
   });
