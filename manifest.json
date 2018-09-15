@@ -26,5 +26,25 @@
     "16": "images/smartasset_180x180.png",
     "128": "images/smartasset_300x300.png"
   },
+  "commands": {
+    "view_local": {
+      "description": "Go to local environment",
+      "suggested_key": {
+        "default": "Ctrl+Shift+1"
+      }
+    },
+    "view_staging": {
+      "description": "Go to default staging environment",
+      "suggested_key": {
+        "default": "Ctrl+Shift+2"
+      }
+    },
+    "view_live": {
+      "description": "Go to SA.com",
+      "suggested_key": {
+        "default": "Ctrl+Shift+9"
+      }
+    }
+  },
   "manifest_version": 2
 }
