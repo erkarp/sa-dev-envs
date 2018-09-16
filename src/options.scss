@@ -4,12 +4,21 @@ $sa-light-blue: #1ea5df;
 body {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: $sa-dark-blue;
+  background-color: $sa-light-blue;
 }
 
-h1, h2 {
-  font-weight: 100;
+h1 {
+  width: 50px;
   margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 380px;
+  
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1.1;
+
+  background: url(../images/smartasset_logo_22inches_blue.png) 0 50% no-repeat;
+  background-size: 86%;
 }
 
 main {
@@ -21,7 +30,7 @@ main {
   width: 600px;
   padding: 30px;
   color: white;
-  background-color: $sa-light-blue;
+  background-color: $sa-dark-blue;
 }
 
 form {
@@ -29,6 +38,10 @@ form {
   border: none;
   color: $sa-dark-blue;
   background-color: #fff;
+
+  &:not(:first-of-type) {
+    padding-top: 0;
+  }
 }
 
 label {
