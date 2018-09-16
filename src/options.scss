@@ -1,4 +1,5 @@
 $mobileBreakpoint: 688px;
+$xSmallBreakpoint: 215px;
 $sa-dark-blue: #00496e;
 $sa-light-blue: #1ea5df;
 
@@ -27,6 +28,16 @@ h1 {
     line-height: 1.3;
     background: url(../images/smartasset_300x300.png) 0 50% no-repeat;
     background-size: 50%;
+  }
+
+  @media (max-width: $xSmallBreakpoint) {
+    width: unset;
+    padding-top: 80vw;
+    padding-left: 0;
+    font-size: 18px;
+    line-height: 1.1;
+    background-position: unset;
+    background-size: 100%;
   }
 }
 
@@ -90,6 +101,9 @@ input[type=text] {
 
   @media (max-width: $mobileBreakpoint) {
     margin: .5em 0;
+  }
+  
+  @media (max-width: $xSmallBreakpoint) {
     padding: .5em .05em;
   }
 }
