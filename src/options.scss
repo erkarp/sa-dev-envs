@@ -1,0 +1,40 @@
+$sa-dark-blue: #00496e;
+$sa-light-blue: #1ea5df;
+
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $sa-dark-blue;
+}
+
+h1, h2 {
+  font-weight: 100;
+  margin-top: 0;
+}
+
+form {
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+
+  width: 600px;
+  padding: 30px;
+  color: white;
+  background-color: $sa-light-blue;
+}
+
+fieldset {
+  padding: 20px;
+  border: none;
+  color: $sa-dark-blue;
+  background-color: #fff;
+}
+
+label {
+  margin-left: 2em;
+}
+
+input {
+  width: 2em;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "sa-dev-envs",
+  "version": "1.0.0",
+  "description": "Manage dev and staging environments",
+  "main": "background.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erkarp/sa-dev-envs.git"
+  },
+  "author": "erkarp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erkarp/sa-dev-envs/issues"
+  },
+  "homepage": "https://github.com/erkarp/sa-dev-envs#readme",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.3.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}

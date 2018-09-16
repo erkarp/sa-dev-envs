@@ -1,4 +1,4 @@
-const optionsFormElem = document.getElementById('options');
+const optionsFormElem = document.getElementById('defaultStaging');
 
 chrome.storage.sync.get(['origins', 'shortcutMap'], function(data) {
   data.origins.forEach(function(origin) {
