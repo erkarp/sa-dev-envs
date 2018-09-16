@@ -4,12 +4,17 @@
 </head>
 <html>
   <body>
-    <form>
+    <main>
       <h1>Development Environment Manager</h1>
-      <fieldset id="defaultStaging">
+      <form id="defaultStaging">
         <strong>Default Staging Site</strong>
-      </fieldset>
-    </form>
+      </form>
+      <form id="localHostForm">
+        <strong>Local Origin</strong>
+        <input type="text" id="localHostName">
+        <button type="submit">Save</button>
+      </form>
+    </main>
     <script src="./options.js"></script>
   </body>
 </html>
